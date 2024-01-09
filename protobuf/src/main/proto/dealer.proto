@@ -1,0 +1,8 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.shashi.models";
+import "common/car.proto";
+
+message Dealer{
+  map<int32, common.Car> models = 1;
+}
