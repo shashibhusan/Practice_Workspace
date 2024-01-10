@@ -22,7 +22,7 @@ public class DepartmentService  {
     }
 
     public List<Department> findAll() {
-        log.info("Inside findAll() method of DepartmentService on port "+serverPort);
+        log.info("Inside findAll() method of DepartmentService ");
         return departmentRepository.findAll();
     }
 

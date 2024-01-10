@@ -82,4 +82,24 @@ public class UserController {
                 collectList().block();
         return departmentList;
     }
+
+    // WebClient Post Example
+    @PostMapping("fluxPost/")
+    public  Department fluxPostExample(){
+        log.info("****Inside method fluxPostExample() of UserController*****");
+        Department department = webClient.post()
+                .uri("departments/")
+                .bodyValue(getDepartment())
+                .retrieve().bodyToMono(Department.class).block();
+        return department;
+    }
+
+    private Department getDepartment(){
+        Department department=new Department();
+        department.setDepartmentAddress("Ballia");
+        department.setDepartmentCode("DepartmentCode");
+        department.setDepartmentName("Traffic Department");
+        return department;
+    }
+
 }
