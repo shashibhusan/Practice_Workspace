@@ -1,6 +1,8 @@
 package com.interview.Test.controller;
 
 import com.interview.Test.configuration.TestConfiguration;
+import com.interview.Test.pojo.Employee;
+import com.interview.Test.pojo.Office;
 import com.interview.Test.pojo.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -28,4 +30,15 @@ public class TestController {
         student.studentActivity();
         return "Hello world";
     }
+    @Autowired
+    Employee employee;
+    @Bean
+    public Employee empBean(){
+        return new Employee();
+    }
+    @Bean
+    public Office officeBean(){
+        return new Office(employee);
+    }
+
 }
